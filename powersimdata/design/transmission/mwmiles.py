@@ -1,4 +1,3 @@
-from powersimdata.input.grid import Grid
 from powersimdata.input.transform_grid import TransformGrid
 from powersimdata.utility.distance import haversine
 
@@ -15,7 +14,7 @@ def calculate_mw_miles(scenario, exclude_branches=None):
     :return: (*dict*) -- Upgrades to the branches.
     """
 
-    original_grid = Grid(scenario.info["interconnect"].split("_"))
+    original_grid = scenario.state.get_base_grid()
     ct = scenario.state.get_ct()
     upgrades = _calculate_mw_miles(original_grid, ct, exclude_branches)
     return upgrades
