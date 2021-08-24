@@ -14,8 +14,8 @@ def calculate_mw_miles(scenario, exclude_branches=None):
     :return: (*dict*) -- Upgrades to the branches.
     """
 
-    original_grid = scenario.state.get_base_grid()
-    ct = scenario.state.get_ct()
+    original_grid = scenario.get_base_grid()
+    ct = scenario.get_ct()
     upgrades = _calculate_mw_miles(original_grid, ct, exclude_branches)
     return upgrades
 

@@ -454,9 +454,9 @@ def create_change_table(input_targets, ref_scenario):
     :return: (*dict*) -- dictionary to be passed to a change table.
     """
     epsilon = 1e-3
-    base_grid = ref_scenario.state.get_base_grid()
+    base_grid = ref_scenario.get_base_grid()
     grid_zones = base_grid.plant.zone_name.unique()
-    ref_grid = ref_scenario.state.get_grid()
+    ref_grid = ref_scenario.get_grid()
     ct = mimic_generation_capacity(base_grid, ref_grid)
     for region in input_targets.index:
         prev_solar = input_targets.loc[region, "solar.prev_capacity"]
